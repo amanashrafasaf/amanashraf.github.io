@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Ashraf Asaf - Portfolio</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #121212;
+            --bg-light: #EBE5DB;
+            --bg-lighter: #F5F2EB;
+            --text-dark: #1A1A1A;
+            --text-light: #F5F2EB;
+            --accent-beige: #D2C4A7;
+            --accent-dark: #2A2A2A;
+            --line-color: #D3CDC1;
+            --muted: #6a6358;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--text-dark);
+            background-color: var(--bg-dark);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* --- HEADER SECTION --- */
+        header {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 40px;
+            padding: 56px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 32px;
+            z-index: 2;
+        }
+
+        .top-label {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .hero-name {
+            font-family: 'Anton', sans-serif;
+            font-weight: 400;
+            font-size: 6.4rem;
+            line-height: 0.92;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-name .highlight {
+            color: var(--accent-beige);
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+        }
+
+        .hero-name .highlight span {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .hero-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-subtitle i {
+            font-size: 1.3rem;
+            color: var(--accent-beige);
+        }
+
+        .hero-subtitle div {
+            line-height: 1.4;
+        }
+
+        .hero-subtitle div strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .hero-subtitle div span {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .header-right {
+            position: relative;
+            width: 42%;
+            min-width: 280px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .header-right img {
+            width: 100%;
+            max-width: 380px;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 10px;
+            z-index: 1;
+            display: block;
+        }
+
+        /* Fallback look if the image hasn't been added yet */
+        .header-right img[src=""],
+        .header-right img:not([src]) {
+            background: linear-gradient(#2a2a2a, #101010);
+            aspect-ratio: 3/4;
+        }
+
+        .quote {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            font-size: 1.8rem;
+            line-height: 1.25;
+            position: absolute;
+            right: 0;
+            top: -8px;
+            z-index: 2;
+            color: var(--accent-beige);
+            text-align: right;
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .portfolio-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .sidebar {
+            width: 35%;
+            background-color: var(--bg-light);
+            padding: 48px 48px 48px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 44px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding-top: 22px;
+            border-top: 1px solid var(--line-color);
+            margin-bottom: 24px;
+            color: var(--muted);
+        }
+
+        .section-header span {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--muted);
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: #333;
+        }
+
+        .about-text p.bold-text {
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.4;
+            margin-top: 24px;
+            margin-bottom: 0;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .skill-name {
+            width: 45%;
+            line-height: 1.3;
+        }
+
+        .skill-bar-bg {
+            flex: 1;
+            height: 4px;
+            background-color: #d8d2c6;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background-color: var(--text-dark);
+            border-radius: 2px;
+        }
+
+        .skill-percent {
+            width: 40px;
+            text-align: right;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-item i {
+            font-size: 1.1rem;
+            color: #555;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 8px;
+        }
+
+        .sidebar-footer p {
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--muted);
+            border: 1px solid var(--muted);
+            border-radius: 50px;
+            padding: 8px 18px;
+            display: inline-block;
+        }
+
+        /* --- RIGHT CONTENT --- */
+        .main-content {
+            width: 65%;
+            background-color: var(--bg-lighter);
+            padding: 48px 60px 48px 48px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .grid-item {
+            aspect-ratio: 3/4;
+            border-radius: 4px;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .other-stuff {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 28px;
+            border-radius: 6px;
+            margin-bottom: 36px;
+        }
+
+        .other-stuff-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .stuff-icons {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stuff-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .stuff-item i {
+            font-size: 1.7rem;
+            color: var(--bg-light);
+        }
+
+        .stuff-item span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .tools-list {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+        }
+
+        .tool-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: white;
+        }
+
+        .tool-ps { background: #001E36; color: #31A8FF; border: 2px solid #31A8FF; }
+        .tool-ai { background: #330000; color: #FF9A00; border: 2px solid #FF9A00; }
+        .tool-id { background: #2D001B; color: #FF3366; border: 2px solid #FF3366; }
+        .tool-lr { background: #001E36; color: #31A8FF; border: 2px solid #31A8FF; }
+        .tool-pr { background: #000033; color: #9999FF; border: 2px solid #9999FF; }
+        .tool-fg { background: #2C2C2C; color: #F24E1E; }
+
+        .footer-quote {
+            font-family: 'Caveat', cursive;
+            font-weight: 600;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            color: #555;
+            margin-top: 8px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                padding: 40px 30px;
+            }
+            .header-right {
+                width: 100%;
+                justify-content: center;
+                margin-top: 30px;
+            }
+            .quote {
+                position: static;
+                margin-top: 16px;
+                text-align: center;
+            }
+            .hero-name {
+                font-size: 4.2rem;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 36px 30px;
+            }
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-name {
+                font-size: 3.2rem;
+            }
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-name {
+                width: 40%;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-left">
+            <div class="top-label">PORTFOLIO</div>
+            <div class="hero-name">
+                <div>AMAN</div>
+                <div>ASHRAF</div>
+                <div class="highlight">ASAF <span>*</span></div>
+            </div>
+            <div class="hero-subtitle">
+                <i class="fa-solid fa-arrow-right"></i>
+                <div>
+                    <strong>BCA (Hons) Student</strong>
+                    <span>Rajagiri College of Social Sciences</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="profile.jpg" alt="Aman Ashraf Asaf">
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="portfolio-body">
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+
+            <!-- About Me -->
+            <div class="about-section">
+                <div class="section-header">ABOUT ME <span>*</span></div>
+                <div class="about-text">
+                    <p>I'm Aman Ashraf Asaf, a BCA (Hons) student at Rajagiri College of Social Sciences.</p>
+                    <p>I love editing posters and creating visuals that speak. I enjoy turning ideas into clean, bold and eye-catching designs.</p>
+                    <p>Apart from posters, I explore different forms of digital content and creative stuff.</p>
+                    <p class="bold-text">I don't just edit, I express.<br>Simple.</p>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div class="skills-section">
+                <div class="section-header">SKILLS <span>*</span></div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-name">Poster Design</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                        <div class="skill-percent">90%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Photo Manipulation</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
+                        <div class="skill-percent">80%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Typography</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        <div class="skill-percent">85%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Social Media Design</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                        <div class="skill-percent">85%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Color Grading</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+                        <div class="skill-percent">75%</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Creativity</div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 100%;"></div></div>
+                        <div class="skill-percent">100%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <div class="section-header">CONTACT <span>*</span></div>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>amanashrafasaf@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@aman.ashrr</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Kochi, Kerala</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-brands fa-behance"></i>
+                        <span>amanedits.net/amanashrafasaf</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>I DON'T WORK FOR FREE.</p>
+            </div>
+        </aside>
+
+        <!-- Right Content -->
+        <main class="main-content">
+
+            <!-- Featured Work -->
+            <div class="section-header">FEATURED WORK <span>*</span></div>
+            <div class="featured-grid">
+                <div class="grid-item"><img src="work-1.jpeg" alt="Featured work 1"></div>
+                <div class="grid-item"><img src="work-2.jpeg" alt="Featured work 2"></div>
+                <div class="grid-item"><img src="work-3.jpeg" alt="Featured work 3"></div>
+                <div class="grid-item"><img src="work-4.jpeg" alt="Featured work 4"></div>
+                <div class="grid-item"><img src="work-5.jpeg" alt="Featured work 5"></div>
+                <div class="grid-item"><img src="work-6.jpeg" alt="Featured work 6"></div>
+            </div>
+
+            <!-- Other Stuff -->
+            <div class="other-stuff">
+                <div class="other-stuff-header">OTHER STUFF I DO</div>
+                <div class="stuff-icons">
+                    <div class="stuff-item">
+                        <i class="fa-regular fa-circle-play"></i>
+                        <span>Video<br>Editing</span>
+                    </div>
+                    <div class="stuff-item">
+                        <i class="fa-solid fa-camera"></i>
+                        <span>Photo<br>Editing</span>
+                    </div>
+                    <div class="stuff-item">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <span>Creative<br>Concepts</span>
+                    </div>
+                    <div class="stuff-item">
+                        <i class="fa-regular fa-comments"></i>
+                        <span>Content<br>Creation</span>
+                    </div>
+                    <div class="stuff-item">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        <span>Random<br>Cool Shit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="section-header">TOOLS I USE <span>*</span></div>
+            <div class="tools-list">
+                <div class="tool-icon tool-ps">Ps</div>
+                <div class="tool-icon tool-ai">Ai</div>
+                <div class="tool-icon tool-id">Id</div>
+                <div class="tool-icon tool-lr">Lr</div>
+                <div class="tool-icon tool-pr">Pr</div>
+                <div class="tool-icon tool-fg"><i class="fa-brands fa-figma"></i></div>
+            </div>
+
+            <div class="footer-quote">
+                "Without practice you are not perfect."
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
